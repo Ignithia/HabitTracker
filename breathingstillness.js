@@ -1,0 +1,31 @@
+document.getElementById("startTimer").addEventListener("click", function () {
+  let startButton = document.getElementById("startTimer");
+  startButton.classList.remove("done");
+  startButton.classList.add("not-done");
+  startButton.classList.add("disabled");
+
+  let timerElement = document.getElementById("timer");
+  let seconds = 60;
+  clearInterval(window.timerInterval);
+  window.timerInterval = setInterval(function () {
+    seconds--;
+    if (seconds < 0) {
+      clearInterval(window.timerInterval);
+      timerElement.innerHTML = "<b>00:00</b>";
+      startButton.classList.remove("not-done");
+      startButton.classList.add("done");
+      startButton.classList.remove("disabled");
+      seconds = 60;
+      const today = new Date().toISOString().split("T")[0];
+      localStorage.setItem("breathing-stillness", today);
+      return;
+    }
+    let displaySeconds =
+      seconds % 60 < 10 ? "0" + (seconds % 60) : seconds % 60;
+    let displayMinutes =
+      Math.floor(seconds / 60) < 10
+        ? "0" + Math.floor(seconds / 60)
+        : Math.floor(seconds / 60);
+    timerElement.innerHTML = `<b>${displayMinutes}:${displaySeconds}</b>`;
+  }, 1000);
+});

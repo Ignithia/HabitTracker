@@ -1,0 +1,97 @@
+:root {
+  --primary-color: #8a9a5b;
+  --secondary-color: #8b7d6b;
+  --success-color: #248b2e;
+  --error-color: #cf524e;
+  --text-color: #ffffff;
+  --button-hover: #1e7a25;
+}
+
+body {
+  background: var(--primary-color);
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.header {
+  background: var(--secondary-color);
+  padding: 15px;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 10px;
+  flex-grow: 1;
+}
+
+.header-container .button {
+  margin-left: 10px;
+}
+
+.content {
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  background: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Individual Activity Card */
+.activity-card {
+  background: var(--primary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Status Label */
+.status-label {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.done {
+  background: var(--success-color);
+}
+
+.not-done {
+  background: var(--error-color);
+}
+
+/* Improved Button */
+.button {
+  background: var(--success-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
