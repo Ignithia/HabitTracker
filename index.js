@@ -29,4 +29,28 @@ document.addEventListener("DOMContentLoaded", function () {
   ]
     ? "status done"
     : "status not-done";
+
+  const weeklyData = [
+    { day: "Mon", month: "Feb", done: true },
+    { day: "Tue", month: "Feb", done: false },
+    { day: "Wed", month: "Feb", done: true },
+    { day: "Thu", month: "Feb", done: true },
+    { day: "Fri", month: "Feb", done: false },
+    { day: "Sat", month: "Feb", done: true },
+    { day: "Sun", month: "Feb", done: true },
+  ];
+
+  function generateWeeklyOverview(containerId) {
+    const container = document.getElementById(containerId);
+    weeklyData.forEach(({ day, month, done }) => {
+      const circle = document.createElement("div");
+      circle.classList.add("circle");
+      circle.classList.add(done ? "done" : "not-done");
+      circle.textContent = `${day} ${month}`;
+      container.appendChild(circle);
+    });
+  }
+
+  generateWeeklyOverview("breathing-weekly-overview");
+  generateWeeklyOverview("thought-weekly-overview");
 });

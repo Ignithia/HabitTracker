@@ -18,8 +18,11 @@ body {
 }
 
 .header-container {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  padding: 15px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row-reverse;
   align-items: center;
   width: 90%;
   max-width: 400px;
@@ -27,12 +30,10 @@ body {
 }
 
 .header {
-  background: var(--secondary-color);
   padding: 15px;
   font-weight: bold;
   font-size: 22px;
   text-align: center;
-  border-radius: 10px;
   flex-grow: 1;
 }
 
@@ -52,7 +53,6 @@ body {
   border-radius: 10px;
 }
 
-/* Individual Activity Card */
 .activity-card {
   background: var(--primary-color);
   padding: 20px;
@@ -61,7 +61,6 @@ body {
   text-align: center;
 }
 
-/* Status Label */
 .status-label {
   display: inline-block;
   padding: 6px 12px;
@@ -73,13 +72,14 @@ body {
 
 .done {
   background: var(--success-color);
+  background-color: green;
 }
 
 .not-done {
   background: var(--error-color);
+  background-color: red;
 }
 
-/* Improved Button */
 .button {
   background: var(--success-color);
   color: white;
@@ -94,4 +94,24 @@ body {
 .button:hover {
   background: var(--button-hover);
   transform: scale(1.05);
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  color: white;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.weekly-overview {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }

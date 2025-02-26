@@ -19,11 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
     fakeThoughts.forEach((thought) => {
       const thoughtElement = document.createElement("p");
       thoughtElement.classList.add("thought-item");
+      thoughtElement.id = "fakethought-item";
       thoughtElement.textContent = thought;
       thoughtsContainer.appendChild(thoughtElement);
     });
   }
+
   savedThoughts.forEach(({ thought, timestamp }) => {
+    if (thoughtsContainer.lastChild.id === "fakethought-item") {
+      thoughtsContainer.innerHTML = "";
+    }
     const thoughtElement = document.createElement("p");
     thoughtElement.classList.add("thought-item");
     thoughtElement.textContent = `${thought} : ${timestamp}`;
