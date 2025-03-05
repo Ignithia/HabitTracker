@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date();
+  const todayStr = today.toISOString().split("T")[0];
 
   const habitsStatus = {
     "breathing-stillness":
-      localStorage.getItem("breathing-stillness") === today,
+      localStorage.getItem(`habit-breathing-stillness-${todayStr}`) === "true",
     "one-thought-one-line":
-      localStorage.getItem("one-thought-one-line") === today,
+      localStorage.getItem(`habit-one-thought-one-line-${todayStr}`) === "true",
   };
 
   document.getElementById("breathing-status").textContent = habitsStatus[
@@ -30,27 +31,46 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "status done"
     : "status not-done";
 
-  const weeklyData = [
-    { day: "Mon", month: "Feb", done: true },
-    { day: "Tue", month: "Feb", done: false },
-    { day: "Wed", month: "Feb", done: true },
-    { day: "Thu", month: "Feb", done: true },
-    { day: "Fri", month: "Feb", done: false },
-    { day: "Sat", month: "Feb", done: true },
-    { day: "Sun", month: "Feb", done: true },
-  ];
+  function getWeeklyData(habit) {
+    const weeklyData = [];
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - i);
+      const dateStr = date.toISOString().split("T")[0];
+      const done = localStorage.getItem(`habit-${habit}-${dateStr}`) === "true";
+      weeklyData.push({ date, done });
+    }
+    return weeklyData;
+  }
 
-  function generateWeeklyOverview(containerId) {
+  function generateWeeklyOverview(containerId, habit) {
     const container = document.getElementById(containerId);
-    weeklyData.forEach(({ day, month, done }) => {
+    container.innerHTML = "";
+    const weeklyData = getWeeklyData(habit);
+    weeklyData.forEach(({ date, done }) => {
       const circle = document.createElement("div");
       circle.classList.add("circle");
       circle.classList.add(done ? "done" : "not-done");
-      circle.textContent = `${day} ${month}`;
+      circle.textContent = `${date.getDate().toString().padStart(2, "0")}/${(
+        date.getMonth() + 1
+      )
+        .toString()
+        .padStart(2, "0")}`;
       container.appendChild(circle);
     });
   }
 
-  generateWeeklyOverview("breathing-weekly-overview");
-  generateWeeklyOverview("thought-weekly-overview");
+  window.generateWeeklyOverview = generateWeeklyOverview;
+
+  generateWeeklyOverview("breathing-weekly-overview", "breathing-stillness");
+  generateWeeklyOverview("thought-weekly-overview", "one-thought-one-line");
+
+  localStorage.setItem(
+    `habit-breathing-stillness-${todayStr}`,
+    habitsStatus["breathing-stillness"]
+  );
+  localStorage.setItem(
+    `habit-one-thought-one-line-${todayStr}`,
+    habitsStatus["one-thought-one-line"]
+  );
 });

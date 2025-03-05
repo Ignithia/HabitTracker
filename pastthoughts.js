@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const thoughtsContainer = document.getElementById("thoughts-container");
   const savedThoughts = JSON.parse(localStorage.getItem("thoughts")) || [];
   if (thoughtsContainer.children.length === 0) {
-    // Add some fake thoughts
     const fakeThoughts = [
       "These are fake thoughts. Just to show you how it looks.",
       "I need to exercise more.",

@@ -15,9 +15,10 @@ document.getElementById("startTimer").addEventListener("click", function () {
       startButton.classList.remove("not-done");
       startButton.classList.add("done");
       startButton.classList.remove("disabled");
-      seconds = 60;
       const today = new Date().toISOString().split("T")[0];
-      localStorage.setItem("breathing-stillness", today);
+      localStorage.setItem(`habit-breathing-stillness-${today}`, "true");
+      seconds = 60;
+      window.timerInterval = setInterval(arguments.callee, 1000);
       return;
     }
     let displaySeconds =

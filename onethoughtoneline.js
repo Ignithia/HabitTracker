@@ -1,4 +1,3 @@
-//One-Thought-One-Line
 document.getElementById("submit").addEventListener("click", function () {
   const inputBox = document.querySelector(".input-box");
   const thought = inputBox.value.trim();
@@ -8,8 +7,13 @@ document.getElementById("submit").addEventListener("click", function () {
     const savedThoughts = JSON.parse(localStorage.getItem("thoughts")) || [];
     savedThoughts.push({ thought, timestamp });
     localStorage.setItem("thoughts", JSON.stringify(savedThoughts));
-    inputBox.value = ""; // Clear the input box
+    inputBox.value = "";
     const today = new Date().toISOString().split("T")[0];
-    localStorage.setItem("one-thought-one-line", today);
+    localStorage.setItem(`habit-one-thought-one-line-${today}`, "true");
+
+    document.getElementById("thought-status").textContent = "Done";
+    document.getElementById("thought-status").className = "status done";
+
+    generateWeeklyOverview("thought-weekly-overview", "one-thought-one-line");
   }
 });

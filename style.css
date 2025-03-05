@@ -51,6 +51,8 @@ body {
   background: var(--secondary-color);
   padding: 20px;
   border-radius: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .activity-card {
@@ -61,34 +63,40 @@ body {
   text-align: center;
 }
 
-.status-label {
-  display: inline-block;
+.status {
   padding: 6px 12px;
-  border-radius: 15px;
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.done {
-  background: var(--success-color);
-  background-color: green;
-}
-
-.not-done {
-  background: var(--error-color);
-  background-color: red;
-}
-
 .button {
   background: var(--success-color);
-  color: white;
+  color: var(--text-color);
   padding: 10px 15px;
   border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
   transition: 0.3s ease;
+  border: solid 2px var(--primary-color);
+}
+.back-button {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: x-large;
+  background-color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+#startTimer {
+  padding: 20px 15px;
+}
+#submit {
+  border: none;
 }
 
 .button:hover {
@@ -96,6 +104,20 @@ body {
   transform: scale(1.05);
 }
 
+.back-button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.input-box {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 2px var(--success-color);
+  margin-bottom: 10px;
+}
 .circle {
   width: 50px;
   height: 50px;
@@ -114,4 +136,40 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 10px;
+}
+
+.done {
+  background: var(--success-color);
+  background-color: green;
+}
+
+.not-done {
+  background: var(--error-color);
+  background-color: red;
+}
+
+.not-done:hover {
+  background-color: var(--error-color);
+  transform: none;
+}
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+#timer {
+  font-size: 40px;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  border: solid 2px var(--success-color);
+  padding: 25px;
+  border-radius: 30px;
+}
+
+.thought-item {
+  background: var(--success-color);
+  padding: 15px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 10px;
+  font-style: italic;
+  margin: 10px 0;
 }
