@@ -17,8 +17,9 @@ document.getElementById("startTimer").addEventListener("click", function () {
       startButton.classList.remove("disabled");
       const today = new Date().toISOString().split("T")[0];
       localStorage.setItem(`habit-breathing-stillness-${today}`, "true");
-      seconds = 60;
-      window.timerInterval = setInterval(arguments.callee, 1000);
+      setTimeout(() => {
+        timerElement.innerHTML = "<b>01:00</b>";
+      }, 1000);
       return;
     }
     let displaySeconds =

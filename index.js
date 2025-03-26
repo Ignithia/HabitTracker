@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "status done"
     : "status not-done";
 
+  function updateHabitStatus(habit, dateStr, status) {
+    localStorage.setItem(`habit-${habit}-${dateStr}`, status);
+  }
+
   function getWeeklyData(habit) {
     const weeklyData = [];
     for (let i = 6; i >= 0; i--) {
@@ -65,12 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
   generateWeeklyOverview("breathing-weekly-overview", "breathing-stillness");
   generateWeeklyOverview("thought-weekly-overview", "one-thought-one-line");
 
-  localStorage.setItem(
-    `habit-breathing-stillness-${todayStr}`,
+  updateHabitStatus(
+    "breathing-stillness",
+    todayStr,
     habitsStatus["breathing-stillness"]
   );
-  localStorage.setItem(
-    `habit-one-thought-one-line-${todayStr}`,
+  updateHabitStatus(
+    "one-thought-one-line",
+    todayStr,
     habitsStatus["one-thought-one-line"]
   );
 });
