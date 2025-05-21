@@ -13,7 +13,7 @@ Een eenvoudige, door de natuur geïnspireerde webapp om je te helpen gezonde gew
 ## Gebruik
 
 1. **Startpagina:**  
-   Bekijk je gewoontes en hun huidige status. Klik op "Start activiteit" of "Doorgaan" om aan een gewoonte te werken.
+   Bekijk je gewoontes en hun huidige status. Klik op "Start activity" om aan een gewoonte te werken.
 
 2. **Breathing Stillness:**  
    Klik op "Start" om een timer van 1 minuut te starten. Na afloop wordt je voortgang voor die dag opgeslagen.
@@ -23,6 +23,28 @@ Een eenvoudige, door de natuur geïnspireerde webapp om je te helpen gezonde gew
 
 4. **Weekoverzicht:**  
    Gekleurde cirkels tonen je streak per gewoonte over de afgelopen week.
+
+## Demo Data voor Breathing Stillness
+
+Wil je snel zien hoe het weekoverzicht werkt zonder 7 dagen te wachten?  
+Gebruik de demo-functies in `index.js`:
+
+- **Demo data toevoegen:**  
+  Zoek bovenaan in `index.js` naar:
+
+  ```js
+  // addBreathingDemoData();
+  ```
+
+  Haal het commentaar weg (verwijder `//`) en ververs de pagina.  
+  Dit vult de afgelopen 7 dagen als "gedaan" in het weekoverzicht.
+
+- **Demo data verwijderen:**  
+  Zoek naar:
+  ```js
+  // removeBreathingDemoData();
+  ```
+  Haal het commentaar weg en ververs de pagina om de demo data weer te verwijderen.
 
 ## Aanpassen
 
