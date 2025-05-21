@@ -36,7 +36,7 @@ Gebruik de demo-functies in `index.js`:
   // addBreathingDemoData();
   ```
 
-  Haal het commentaar weg (verwijder `//`) en ververs de pagina.  
+  Haal het commentaar weg (verwijder `//`) en refresh de pagina.  
   Dit vult de afgelopen 7 dagen als "gedaan" in het weekoverzicht.
 
 - **Demo data verwijderen:**  
@@ -44,7 +44,7 @@ Gebruik de demo-functies in `index.js`:
   ```js
   // removeBreathingDemoData();
   ```
-  Haal het commentaar weg en ververs de pagina om de demo data weer te verwijderen.
+  Haal het commentaar weg en refresh de pagina om de demo data weer te verwijderen.
 
 ## Aanpassen
 
@@ -55,8 +55,8 @@ Gebruik de demo-functies in `index.js`:
 
 1. Download of kloon deze repository.
 2. Open `index.html` in je browser.
-3. Begin met het bijhouden van je gewoontes!
+3. Begin met het bijhouden van je nieuwe habits!
 
 ---
 
-**Geniet van een rustige, mindful manier om aan je gewoontes te werken!**
+**Geniet van een rustige, mindful manier om aan je nieuwe habits te werken!**
