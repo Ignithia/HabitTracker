@@ -15,5 +15,17 @@ document.getElementById("submit").addEventListener("click", function () {
     document.getElementById("thought-status").className = "status done";
 
     generateWeeklyOverview("thought-weekly-overview", "one-thought-one-line");
+
+    let toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = "Thought saved!";
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 10);
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 2000);
   }
 });

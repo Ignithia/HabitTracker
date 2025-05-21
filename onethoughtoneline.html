@@ -4,26 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Habit Tracker - One thought One Line</title>
+    <title>Habit Tracker - One Thought One Line</title>
   </head>
   <body>
-    <div class="header-container">
-      <div class="header">One thought, one line</div>
-      <a href="./index.html" class="button"><</a>
-    </div>
+    <header class="header-container">
+      <h1 class="header">One Thought, One Line</h1>
+      <a href="./index.html" class="button back-button">&lt; Back</a>
+    </header>
 
-    <div class="content">
-      <p>What did you think about?</p>
-      <div class="input-container">
-        <input
-          type="text"
-          class="input-box"
-          placeholder="Put your thoughts here"
-        />
-        <button class="button" type="button" id="submit">></button>
-      </div>
-      <a href="./pastthoughts.html" class="button">See past thoughts</a>
-    </div>
+    <main class="content">
+      <section>
+        <h2>What Did You Think About?</h2>
+        <div class="input-container">
+          <input
+            type="text"
+            class="input-box"
+            placeholder="Put your thoughts here"
+          />
+          <button class="button" type="button" id="submit">Submit</button>
+        </div>
+        <a href="./pastthoughts.html" class="button">See Past Thoughts</a>
+      </section>
+    </main>
+
     <script src="./onethoughtoneline.js"></script>
   </body>
 </html>

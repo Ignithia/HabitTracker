@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   const thoughtsContainer = document.getElementById("thoughts-container");
   const savedThoughts = JSON.parse(localStorage.getItem("thoughts")) || [];
-  if (thoughtsContainer.children.length === 0) {
+
+  // Clear the container before adding thoughts
+  thoughtsContainer.innerHTML = "";
+
+  if (savedThoughts.length === 0) {
     const fakeThoughts = [
       "These are fake thoughts. Just to show you how it looks.",
       "I need to exercise more.",
@@ -16,21 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     fakeThoughts.forEach((thought) => {
-      const thoughtElement = document.createElement("p");
+      const thoughtElement = document.createElement("div");
       thoughtElement.classList.add("thought-item");
-      thoughtElement.id = "fakethought-item";
-      thoughtElement.textContent = thought;
+      thoughtElement.innerHTML = `<h3>Thought</h3><p>${thought}</p>`;
+      thoughtsContainer.appendChild(thoughtElement);
+    });
+  } else {
+    savedThoughts.forEach(({ thought, timestamp }) => {
+      const thoughtElement = document.createElement("div");
+      thoughtElement.classList.add("thought-item");
+      thoughtElement.innerHTML = `<h3>Saved Thought - <span class="date">${timestamp}</span></h3><p>${thought}</p>`;
       thoughtsContainer.appendChild(thoughtElement);
     });
   }
-
-  savedThoughts.forEach(({ thought, timestamp }) => {
-    if (thoughtsContainer.lastChild.id === "fakethought-item") {
-      thoughtsContainer.innerHTML = "";
-    }
-    const thoughtElement = document.createElement("p");
-    thoughtElement.classList.add("thought-item");
-    thoughtElement.textContent = `${thought} : ${timestamp}`;
-    thoughtsContainer.appendChild(thoughtElement);
-  });
 });

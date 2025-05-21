@@ -17,6 +17,18 @@ document.getElementById("startTimer").addEventListener("click", function () {
       startButton.classList.remove("disabled");
       const today = new Date().toISOString().split("T")[0];
       localStorage.setItem(`habit-breathing-stillness-${today}`, "true");
+
+      let toast = document.createElement("div");
+      toast.className = "toast";
+      toast.textContent = "Breathing exercise completed!";
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.add("show");
+      }, 10);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+      }, 2000);
       setTimeout(() => {
         timerElement.innerHTML = "<b>01:00</b>";
       }, 1000);

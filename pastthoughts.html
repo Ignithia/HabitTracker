@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Habit Tracker - Past thoughts</title>
+    <title>Habit Tracker - Past Thoughts</title>
   </head>
   <body>
-    <div class="header-container">
-      <div class="header">Past thoughts</div>
-      <a href="./onethoughtoneline.html" class="back-button"><</a>
-    </div>
+    <header class="header-container">
+      <h1 class="header">Past Thoughts</h1>
+      <a href="./onethoughtoneline.html" class="button back-button"
+        >&lt; Back</a
+      >
+    </header>
 
-    <div class="content">
-      <p>What did you think about</p>
-      <div id="thoughts-container"></div>
-    </div>
+    <main class="content">
+      <section>
+        <h2>Your Past Thoughts</h2>
+        <div id="thoughts-container" class="thoughts-list">
+          <!-- Thoughts will be dynamically added here -->
+        </div>
+      </section>
+    </main>
+
     <script src="./pastthoughts.js"></script>
   </body>
 </html>
