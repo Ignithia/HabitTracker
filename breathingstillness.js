@@ -7,6 +7,8 @@ document.getElementById("startTimer").addEventListener("click", function () {
   let timerElement = document.getElementById("timer");
   let seconds = 60;
   clearInterval(window.timerInterval);
+
+  // Countdown timer logic
   window.timerInterval = setInterval(function () {
     seconds--;
     if (seconds < 0) {
@@ -18,6 +20,7 @@ document.getElementById("startTimer").addEventListener("click", function () {
       const today = new Date().toISOString().split("T")[0];
       localStorage.setItem(`habit-breathing-stillness-${today}`, "true");
 
+      // Show feedback notification
       let toast = document.createElement("div");
       toast.className = "toast";
       toast.textContent = "Breathing exercise completed!";
@@ -34,6 +37,7 @@ document.getElementById("startTimer").addEventListener("click", function () {
       }, 1000);
       return;
     }
+    // Update timer display
     let displaySeconds =
       seconds % 60 < 10 ? "0" + (seconds % 60) : seconds % 60;
     let displayMinutes =

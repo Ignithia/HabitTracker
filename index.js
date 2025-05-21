@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.getItem(`habit-one-thought-one-line-${todayStr}`) === "true",
   };
 
+  // Update the status labels for both habits
   document.getElementById("breathing-status").textContent = habitsStatus[
     "breathing-stillness"
   ]
@@ -17,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("breathing-status").className = habitsStatus[
     "breathing-stillness"
   ]
-    ? "status done"
-    : "status not-done";
+    ? "status-label done"
+    : "status-label not-done";
 
   document.getElementById("thought-status").textContent = habitsStatus[
     "one-thought-one-line"
@@ -28,13 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("thought-status").className = habitsStatus[
     "one-thought-one-line"
   ]
-    ? "status done"
-    : "status not-done";
+    ? "status-label done"
+    : "status-label not-done";
 
+  // Save habit status for a specific date
   function updateHabitStatus(habit, dateStr, status) {
     localStorage.setItem(`habit-${habit}-${dateStr}`, status);
   }
 
+  // Get last 7 days' completion data for a habit
   function getWeeklyData(habit) {
     const weeklyData = [];
     for (let i = 6; i >= 0; i--) {
@@ -47,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return weeklyData;
   }
 
+  // Render weekly overview circles for a habit
   function generateWeeklyOverview(containerId, habit) {
     const container = document.getElementById(containerId);
     container.innerHTML = "";
@@ -64,11 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Make generateWeeklyOverview available globally
   window.generateWeeklyOverview = generateWeeklyOverview;
 
+  // Render weekly overviews for both habits
   generateWeeklyOverview("breathing-weekly-overview", "breathing-stillness");
   generateWeeklyOverview("thought-weekly-overview", "one-thought-one-line");
 
+  // Ensure today's status is saved in localStorage
   updateHabitStatus(
     "breathing-stillness",
     todayStr,

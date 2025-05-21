@@ -94,7 +94,7 @@ section:hover {
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   display: inline-block;
   margin-top: 10px;
 }
@@ -117,27 +117,33 @@ section:hover {
   box-sizing: border-box;
 }
 
-.status-label {
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: var(--border-radius);
-  font-size: 14px;
-  display: inline-block;
-  margin-top: 10px;
-  text-transform: uppercase;
+.status-label,
+.weekly-overview div {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 7px 18px;
   letter-spacing: 1px;
+  border: none;
+  box-shadow: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.not-done {
-  background: var(--status-not-done);
-  color: white;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+.status-label.not-done,
+.weekly-overview div.not-done {
+  background: #e5735c;
+  color: #fff3e0;
+  border: 1.5px solid #c44536;
 }
 
-.done {
-  background: var(--status-done);
-  color: white;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+.status-label.done,
+.weekly-overview div.done {
+  background: #388e3c;
+  color: #fff;
+  border: 1.5px solid #2e7d32;
 }
 
 .date {
@@ -258,6 +264,10 @@ footer {
 
 .activity-card .weekly-overview {
   margin-top: 0;
+  margin-bottom: 0;
+  justify-content: center;
+  gap: 18px;
+  padding-bottom: 8px;
 }
 
 .status-label {
@@ -286,15 +296,19 @@ footer {
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .activity-card h2 {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .activity-card .button {
   display: inline-block;
   margin-top: 10px;
+  margin-bottom: 18px;
   padding: 10px 15px;
   background-color: var(--button-color);
   color: #fff;
@@ -303,6 +317,8 @@ footer {
   font-weight: bold;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .activity-card .button:hover {
@@ -358,19 +374,35 @@ footer {
     font-size: 24px;
   }
 
+  .activity-card,
+  section {
+    padding: 14px;
+  }
+
+  .activity-card .button,
+  .button,
   .back-button {
-    position: static;
-    margin: 0 auto;
+    font-size: 15px;
+    padding: 10px 14px;
+    border-radius: 12px;
+  }
+
+  .status-label {
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 14px;
+    min-width: 70px;
   }
 
   .weekly-overview {
-    gap: 10px;
-    margin-top: 15px;
+    gap: 7px;
+    margin-top: 10px;
   }
 
   .weekly-overview div {
-    width: 40px;
-    height: 40px;
-    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    margin: 0 1px;
   }
 }

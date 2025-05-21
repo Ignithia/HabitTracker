@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const thoughtsContainer = document.getElementById("thoughts-container");
   const savedThoughts = JSON.parse(localStorage.getItem("thoughts")) || [];
 
-  // Clear the container before adding thoughts
   thoughtsContainer.innerHTML = "";
 
   if (savedThoughts.length === 0) {
+    // Show example thoughts if none are saved
     const fakeThoughts = [
       "These are fake thoughts. Just to show you how it looks.",
       "I need to exercise more.",
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       thoughtsContainer.appendChild(thoughtElement);
     });
   } else {
+    // Show saved thoughts with timestamps
     savedThoughts.forEach(({ thought, timestamp }) => {
       const thoughtElement = document.createElement("div");
       thoughtElement.classList.add("thought-item");

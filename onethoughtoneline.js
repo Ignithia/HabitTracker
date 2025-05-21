@@ -2,6 +2,7 @@ document.getElementById("submit").addEventListener("click", function () {
   const inputBox = document.querySelector(".input-box");
   const thought = inputBox.value.trim();
   if (thought) {
+    // Save the thought and update localStorage
     const now = new Date();
     const timestamp = now.toLocaleDateString();
     const savedThoughts = JSON.parse(localStorage.getItem("thoughts")) || [];
@@ -11,11 +12,12 @@ document.getElementById("submit").addEventListener("click", function () {
     const today = new Date().toISOString().split("T")[0];
     localStorage.setItem(`habit-one-thought-one-line-${today}`, "true");
 
+    // Update UI to reflect completion
     document.getElementById("thought-status").textContent = "Done";
     document.getElementById("thought-status").className = "status done";
-
     generateWeeklyOverview("thought-weekly-overview", "one-thought-one-line");
 
+    // Show feedback notification
     let toast = document.createElement("div");
     toast.className = "toast";
     toast.textContent = "Thought saved!";
