@@ -4,6 +4,7 @@
   --background-color: #d0e6d6; /* muted, natural greenish */
   --card-background: #eaf5ec; /* slightly darker card bg */
   --text-color: #263238; /* deep slate for calm contrast */
+  --white-text: #ffffff; /* pure white for some text */
   --button-color: #2e7d32; /* rich green */
   --button-hover-color: #204d26; /* match secondary for hover */
   --card-shadow: 0px 4px 14px rgba(34, 49, 63, 0.13);
@@ -11,7 +12,7 @@
   --font-family: "Roboto", Arial, sans-serif;
   --header-height: 70px;
   --date-color: #607d8b; /* calm blue-grey */
-  --status-not-done: #b71c1c; /* earthy red */
+  --status-not-done: #d84343; /* earthy red */
   --status-done: #388e3c; /* strong green */
 }
 
@@ -29,7 +30,7 @@ body {
 
 .header-container {
   background: var(--primary-color);
-  color: white;
+  color: var(--white-text);
   height: auto;
   width: 100%;
   max-width: 100%;
@@ -88,7 +89,7 @@ section:hover {
 .button,
 .back-button {
   background: var(--button-color);
-  color: white;
+  color: var(--white-text);
   padding: 12px 20px;
   border-radius: var(--border-radius);
   text-decoration: none;
@@ -132,18 +133,34 @@ section:hover {
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
+.status-label {
+  display: inline-block;
+  min-width: 90px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 18px;
+  padding: 7px 20px;
+  letter-spacing: 1.1px;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  border: 2px solid transparent;
+  background: #f4f7f3;
+  color: var(--status-not-done);
+  box-shadow: 0 2px 6px rgba(60, 80, 60, 0.07);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
 .status-label.not-done,
 .weekly-overview div.not-done {
-  background: #e5735c;
-  color: #fff3e0;
-  border: 1.5px solid #c44536;
+  background: var(--status-not-done);
+  color: var(--white-text);
 }
 
 .status-label.done,
 .weekly-overview div.done {
-  background: #388e3c;
-  color: #fff;
-  border: 1.5px solid #2e7d32;
+  background: var(--status-done);
+  color: var(--white-text);
 }
 
 .date {
@@ -217,7 +234,7 @@ section:hover {
 footer {
   margin-top: auto;
   background: var(--secondary-color);
-  color: white;
+  color: var(--white-text);
   text-align: center;
   padding: 10px 0;
   width: 100%;
@@ -242,7 +259,7 @@ footer {
   justify-content: center;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: var(--white-text);
   background-color: #4caf50;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
@@ -270,26 +287,6 @@ footer {
   padding-bottom: 8px;
 }
 
-.status-label {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.status-label.done {
-  background-color: var(--status-done);
-  color: #fff;
-}
-
-.status-label.not-done {
-  background-color: var(--status-not-done);
-  color: #fff;
-}
-
 .activity-card {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -311,7 +308,7 @@ footer {
   margin-bottom: 18px;
   padding: 10px 15px;
   background-color: var(--button-color);
-  color: #fff;
+  color: var(--white-text);
   text-decoration: none;
   border-radius: var(--border-radius);
   font-weight: bold;
@@ -328,7 +325,7 @@ footer {
 
 .back-button {
   background: var(--secondary-color);
-  color: white;
+  color: var(--white-text);
   padding: 8px 16px;
   font-size: 14px;
   border-radius: var(--border-radius);
@@ -348,7 +345,7 @@ footer {
   left: 50%;
   transform: translateX(-50%) translateY(30px);
   background: var(--secondary-color);
-  color: #fff;
+  color: var(--white-text);
   padding: 14px 28px;
   border-radius: 30px;
   font-size: 16px;
