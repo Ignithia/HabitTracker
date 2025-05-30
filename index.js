@@ -1,16 +1,17 @@
-// Add demo data for previous 7 days for breathing exercise
+//testing
+
+// This function adds demo data for the "Breathing Stillness" habit for the last 7 days
 function addBreathingDemoData() {
   const today = new Date();
   for (let i = 0; i < 7; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() - i);
     const dateStr = date.toISOString().split("T")[0];
-    // Set to "true" for demo; change to "false" if you want to simulate missed days
     localStorage.setItem(`habit-breathing-stillness-${dateStr}`, "true");
   }
 }
 
-// Remove demo data for previous 7 days for breathing exercise
+// This function removes demo data for the "Breathing Stillness" habit for the last 7 days
 function removeBreathingDemoData() {
   const today = new Date();
   for (let i = 0; i < 7; i++) {
@@ -26,6 +27,8 @@ function removeBreathingDemoData() {
 
 // Uncomment the next line to remove demo data, then refresh the page
 // removeBreathingDemoData();
+
+//Functionality
 
 document.addEventListener("DOMContentLoaded", function () {
   const today = new Date();

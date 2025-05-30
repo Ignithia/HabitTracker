@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (savedThoughts.length === 0) {
     // Show example thoughts if none are saved
+    // This way, users can see how it looks even if they haven't saved any thoughts yet.
     const fakeThoughts = [
       "These are fake thoughts. Just to show you how it looks.",
       "I need to exercise more.",
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "I need to improve my sleep schedule.",
     ];
 
+    // Show fake saved thoughts
     fakeThoughts.forEach((thought) => {
       const thoughtElement = document.createElement("div");
       thoughtElement.classList.add("thought-item");
